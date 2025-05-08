@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ombor Tizimi - Bosh Sahifa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Qo'shimcha stillar yoki styles.css ga qo'shishingiz mumkin */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Sahifaning to'liq balandligini egallash */
+        }
+        .content-wrap {
+            flex: 1; /* Kontent qismining bo'sh joyni egallashini ta'minlash */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer {
+            background-color: rgba(0, 0, 0, 0.2); /* Yarim shaffof qora fon */
+            color: rgba(255, 255, 255, 0.7); /* Yarim shaffof oq matn */
+            padding: 15px 0;
+            text-align: center;
+            margin-top: auto; /* Footerni pastga yopishtirish */
+        }
+        .navbar {
+             background-color: rgba(0, 0, 0, 0.3); /* Navbar uchun yarim shaffof fon */
+        }
+        .navbar-brand, .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important; /* Navbar elementlari rangi */
+        }
+         .navbar-brand:hover, .nav-link:hover {
+            color: rgba(255, 255, 255, 1) !important; /* Hover rangi */
+        }
+    </style>
+</head>
+<body class="gradient-bg">
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                 <i class="fas fa-warehouse"></i> Ombor Tizimi
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Bosh Sahifa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kirim.html">Kirim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chiqim.html">Chiqim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">Sozlamalar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-wrap">
+        <div class="container my-4">
+            <div class="text-center mb-4">
+                <img id="companyLogo" src="" alt="TOJMAHAL GROUP Logotipi" class="logo-img mb-2" style="display: none;">
+
+                <h1 class="display-4 text-white"><i class="fas fa-warehouse"></i> TOJMAHAL GROUP Ombor Tizimi</h1>
+                <p class="text-white">Andijon shahar Eski osh ko'cha</p>
+                </div>
+            <div class="row justify-content-center">
+                <div class="col-md-5 mb-4">
+                    <a href="kirim.html" class="text-decoration-none">
+                        <div class="card kirim-card text-center animated-card">
+                            <div class="card-body">
+                                <h2><i class="fas fa-boxes"></i> Kirim Mahsulotlari</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-5 mb-4">
+                    <a href="chiqim.html" class="text-decoration-none">
+                        <div class="card chiqim-card text-center animated-card">
+                            <div class="card-body">
+                                <h2><i class="fas fa-truck-loading"></i> Chiqim Mahsulotlari</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                 <div class="col-md-5 mb-4">
+                    <a href="qoldiq.html" class="text-decoration-none">
+                        <div class="card text-center animated-card" style="background-color: rgba(0, 123, 255, 0.8); color: #fff;"> <div class="card-body">
+                                <h2><i class="fas fa-clipboard-list"></i> Ombor Qoldig'i</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-5 mb-4">
+                    <a href="hisobotlar.html" class="text-decoration-none">
+                        <div class="card text-center animated-card" style="background-color: rgba(255, 193, 7, 0.8); color: #fff;"> <div class="card-body">
+                                <h2><i class="fas fa-chart-bar"></i> Hisobotlar</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer mt-auto">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> TOJMAHAL GROUP. Barcha huquqlar himoyalangan.</p>
+            <p>Manzil: Andijon shahar Eski osh ko'cha</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Footer uchun joriy yilni avtomatik qo'yish
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

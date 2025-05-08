@@ -1,0 +1,31 @@
+{
+    "rawMaterials": [
+        {
+            "name": "LDSP",
+            "quantity": "50 varaq",
+            "notes": "18mm qalinlik"
+        },
+        {
+            "name": "Samarez",
+            "quantity": "200 dona",
+            "notes": "MDF uchun"
+        },
+        {
+            "name": "Kromka",
+            "quantity": "1000 metr",
+            "notes": "2mm"
+        }
+    ],
+    "products": [
+        {
+            "name": "Shkaf",
+            "quantity": "5 dona",
+            "description": "3 eshikli, oq rang"
+        },
+        {
+            "name": "Ofis stoli",
+            "quantity": "10 dona",
+            "description": "120x60 sm"
+        }
+    ]
+}

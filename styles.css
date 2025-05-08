@@ -1,0 +1,118 @@
+/* styles.css */
+
+/* Umumiy fon uchun gradient */
+.gradient-bg {
+    background: linear-gradient(to right, #6a11cb, #2575fc); /* Ko'k va binafsha ranglar aralashmasi */
+    color: #fff; /* Matn rangini oq qilish */
+    min-height: 100vh; /* Sahifaning to'liq balandligini egallash */
+    display: flex;
+    flex-direction: column; /* Kontentni vertikal joylashtirish */
+}
+
+/* Kontent qismining bo'sh joyni egallashini ta'minlash */
+.content-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0; /* Yuqori va pastdan padding */
+}
+
+/* Kontent konteyneri */
+.container {
+    background-color: rgba(255, 255, 255, 0.1); /* Yarim shaffof oq fon */
+    border-radius: 15px; /* Yumaloq burchaklar */
+    padding: 30px; /* Ichki bo'shliq */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Soyalar qo'shish */
+    max-width: 800px; /* Maksimal kenglik */
+    width: 100%; /* Kenglikni moslash */
+}
+
+/* Logo rasmi */
+.logo-img {
+    max-width: 150px; /* Maksimal kenglik */
+    height: auto; /* Balandlikni avtomatik sozlash */
+    border-radius: 10px; /* Yumaloq burchaklar */
+}
+
+/* Kartochkalar uchun umumiy stil */
+.card {
+    border: none; /* Chegaralarni olib tashlash */
+    border-radius: 15px; /* Yumaloq burchaklar */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animatsiya uchun o'tish */
+    margin-bottom: 20px; /* Pastdan bo'shliq */
+    background-color: rgba(255, 255, 255, 0.1); /* Kartochka foni uchun standart yarim shaffof oq */
+    color: #fff; /* Matn rangi */
+}
+
+/* Kartochkalar ustiga sichqoncha borganda */
+.card:hover {
+    transform: translateY(-10px); /* Yuqoriga siljitish */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); /* Kattaroq soya */
+}
+
+/* Kirim kartochkasi uchun rang */
+.kirim-card {
+    background-color: rgba(40, 167, 69, 0.8); /* Yashil rang, yarim shaffof */
+}
+
+/* Chiqim kartochkasi uchun rang */
+.chiqim-card {
+    background-color: rgba(220, 53, 69, 0.8); /* Qizil rang, yarim shaffof */
+}
+
+/* Ombor Qoldig'i kartochkasi uchun rang */
+.qoldiq-card {
+     background-color: rgba(0, 123, 255, 0.8); /* Moviy rang, yarim shaffof */
+}
+
+/* Hisobotlar kartochkasi uchun rang */
+.hisobotlar-card {
+     background-color: rgba(255, 193, 7, 0.8); /* Sariq rang, yarim shaffof */
+}
+
+
+/* Kartochka ichidagi sarlavha */
+.card-body h2 {
+    margin-bottom: 0; /* Pastki bo'shliqni olib tashlash */
+    font-size: 1.8rem; /* Shriftsize */
+}
+
+/* Havolalarning tagidagi chiziqni olib tashlash */
+.text-decoration-none {
+    text-decoration: none !important;
+}
+
+/* Navigatsiya paneli stillari */
+.navbar {
+     background-color: rgba(0, 0, 0, 0.3); /* Navbar uchun yarim shaffof fon */
+}
+.navbar-brand, .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important; /* Navbar elementlari rangi */
+}
+ .navbar-brand:hover, .nav-link:hover {
+    color: rgba(255, 255, 255, 1) !important; /* Hover rangi */
+}
+
+/* Footer stillari */
+.footer {
+    background-color: rgba(0, 0, 0, 0.2); /* Yarim shaffof qora fon */
+    color: rgba(255, 255, 255, 0.7); /* Yarim shaffof oq matn */
+    padding: 15px 0;
+    text-align: center;
+    margin-top: auto; /* Footerni pastga yopishtirish */
+}
+
+
+/* Responsivlik uchun qo'shimcha stillar */
+@media (max-width: 768px) {
+    .card-body h2 {
+        font-size: 1.5rem; /* Kichik ekranlarda shriftni kichraytirish */
+    }
+    .container {
+        padding: 20px; /* Kichik ekranlarda paddingni kamaytirish */
+    }
+    .navbar-brand {
+        font-size: 1.2rem; /* Kichik ekranlarda navbar brand shriftini kichraytirish */
+    }
+}

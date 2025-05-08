@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiqim Mahsulotlar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container my-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1><i class="fas fa-chair"></i> Chiqim Mahsulotlar</h1>
+            <a href="index.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Orqaga</a>
+        </div>
+
+        <!-- Qidirish va Filtrlash -->
+        <div class="card mb-4 chiqim-card">
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="productSearch" placeholder="Qidirish (ism, manzil, mahsulot nomi)">
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="productUnitFilter">
+                            <option value="">Barcha birliklar</option>
+                            <option value="dona">Dona</option>
+                            <option value="komplekt">Komplekt</option>
+                            <option value="pritment">Pritment</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-danger w-100" onclick="clearData('product')"><i class="fas fa-trash"></i> Ma'lumotlarni tozalash</button>
+                    </div>
+                </div>
+                <button class="btn btn-primary mb-3" onclick="showProductForm('add')"><i class="fas fa-plus"></i> Yangi Chiqim Qo'shish</button>
+                <div id="productForm" style="display: none;">
+                    <h3 id="productFormTitle">Yangi Chiqim</h3>
+                    <form id="addProductForm" class="row g-3">
+                        <input type="hidden" id="productEditIndex">
+                        <div class="col-md-6">
+                            <label class="form-label">Buyurtmachi Ismi:</label>
+                            <input type="text" class="form-control" id="productPerson">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Manzil:</label>
+                            <input type="text" class="form-control" id="productAddress">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Mahsulot Nomi (masalan, Shkaf):</label>
+                            <input type="text" class="form-control" id="productName" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Dona Summa (so'm):</label>
+                            <input type="number" class="form-control" id="productUnitPrice" step="0.01">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Jami Summa (so'm):</label>
+                            <input type="number" class="form-control" id="productTotalPrice" step="0.01">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Soni:</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="productQuantity" step="0.1">
+                                <select class="form-select" id="productUnit">
+                                    <option value="dona">Dona</option>
+                                    <option value="komplekt">Komplekt</option>
+                                    <option value="pritment">Pritment</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Sana:</label>
+                            <input type="date" class="form-control" id="productDate">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Mahsulot Rasmi (JPG/PNG):</label>
+                            <input type="file" class="form-control" id="productImage" accept="image/jpeg,image/png">
+                            <img id="productImagePreview" src="" alt="Rasm ko'rinishi" class="img-thumbnail mt-2" style="display: none; max-width: 100px;">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Bo'yi (sm):</label>
+                            <input type="number" class="form-control" id="productHeight" step="0.1">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Eni (sm):</label>
+                            <input type="number" class="form-control" id="productWidth" step="0.1">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Chuqurligi (sm):</label>
+                            <input type="number" class="form-control" id="productDepth" step="0.1">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Ishlab chiqarish uchun xom ashyo (masalan, 2 LDSP):</label>
+                            <input type="text" class="form-control" id="productMaterials" placeholder="2 LDSP, 10 Samarez">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Tavsif:</label>
+                            <textarea class="form-control" id="productDescription"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Saqlash</button>
+                            <button type="button" class="btn btn-secondary" onclick="hideProductForm()"><i class="fas fa-times"></i> Yopish</button>
+                        </div>
+                    </form>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Rasm</th>
+                            <th>Buyurtmachi Ismi</th>
+                            <th>Manzil</th>
+                            <th>Mahsulot Nomi</th>
+                            <th>Dona Summa</th>
+                            <th>Jami Summa</th>
+                            <th>Soni</th>
+                            <th>Birlik</th>
+                            <th>Sana</th>
+                            <th>Bo'yi (sm)</th>
+                            <th>Eni (sm)</th>
+                            <th>Chuqurligi (sm)</th>
+                            <th>Amallar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tahlil -->
+        <div class="card chiqim-card">
+            <div class="card-body">
+                <h2><i class="fas fa-chart-line"></i> Tahlil</h2>
+                <p><strong>Jami chiqim turlari:</strong> <span id="totalProducts">0</span></p>
+                <p><strong>Jami summa (so'm):</strong> <span id="totalProductSum">0</span></p>
+                <button class="btn btn-info btn-sm me-2" onclick="exportProductToExcel()"><i class="fas fa-download"></i> Excel sifatida yuklab olish</button>
+                <button class="btn btn-primary btn-sm" onclick="exportProductToPDF()"><i class="fas fa-file-pdf"></i> PDF sifatida yuklab olish</button>
+            </div>
+        </div>
+
+        <!-- Modal oynasi -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="imageModalLabel">Mahsulot Rasmi</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img id="modalImage" src="" alt="To'liq rasm" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- jsPDF AutoTable -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+    <!-- SheetJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
